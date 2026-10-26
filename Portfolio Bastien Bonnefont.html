@@ -1,0 +1,441 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Portfolio Bastien Bonnefont</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Concept: la charte du CV (bleu nuit, ardoise, cyan) en page d'accueil, titres condensés en capitales, sections numérotées par leur contenu réel (projets, parcours). */
+:root {
+  color-scheme: dark;
+  --bg: #0D2033;
+  --bg-2: #112A41;
+  --surface: #16324B;
+  --line: #2A4863;
+  --fg: #EAF1F6;
+  --muted: #9FB3C6;
+  --accent: #46CFD8;
+  --accent-text: #46CFD8;
+  --on-accent: #08202F;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #F3F6F9;
+    --bg-2: #E8EEF3;
+    --surface: #FFFFFF;
+    --line: #C7D3DE;
+    --fg: #0F2438;
+    --muted: #4B6177;
+    --accent: #18B1BD;
+    --accent-text: #0A7585;
+    --on-accent: #06202B;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F3F6F9;
+  --bg-2: #E8EEF3;
+  --surface: #FFFFFF;
+  --line: #C7D3DE;
+  --fg: #0F2438;
+  --muted: #4B6177;
+  --accent: #18B1BD;
+  --accent-text: #0A7585;
+  --on-accent: #06202B;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent-text); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+
+/* Hero */
+.hero { position: relative; padding-block: 56px 48px; isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: 0;
+  left: 50%; width: 100vw; transform: translateX(-50%);
+  background: linear-gradient(115deg, var(--surface) 0%, var(--bg-2) 38%, var(--bg) 38.1%);
+  opacity: .9;
+}
+.eyebrow { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+h1 {
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(2.9rem, 9vw, 6rem); line-height: .95; letter-spacing: .01em;
+  margin: 0; text-wrap: balance;
+}
+.role { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 3.4vw, 1.9rem); text-transform: uppercase; letter-spacing: .08em; color: var(--accent-text); margin: 14px 0 0; }
+.bar { width: 96px; height: 6px; background: var(--accent); margin: 22px 0 26px; }
+.lead { max-width: 62ch; font-size: 1.12rem; margin: 0 0 32px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin: 0; padding: 0; list-style: none; }
+.facts li { padding: 18px 20px 6px 0; min-width: 0; }
+.facts b { display: block; font-family: var(--font-display); font-size: 2.1rem; line-height: 1; font-weight: 700; color: var(--fg); }
+.facts span { display: block; color: var(--muted); font-size: .95rem; margin-top: 4px; }
+nav.top { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 30px; font-family: var(--font-mono); font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; }
+nav.top a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+nav.top a:hover { border-color: var(--accent); color: var(--accent-text); }
+
+/* Sections */
+section { padding-block: 52px 8px; }
+.sec-title {
+  display: flex; align-items: center; gap: 16px;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.05rem;
+  text-transform: uppercase; letter-spacing: .2em; color: var(--accent-text); margin: 0 0 28px;
+}
+.sec-title::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+h2.sec-title { font-size: 1.05rem; }
+
+h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; line-height: 1.1; margin: 0 0 10px; text-wrap: balance; }
+p { margin: 0 0 12px; }
+ul.plain { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+ul.plain li { padding-left: 18px; position: relative; }
+ul.plain li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 2px; background: var(--accent); }
+
+/* Strengths */
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+.cols h3 { font-size: 1.35rem; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.project { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); padding: 24px 24px 22px; min-width: 0; display: flex; flex-direction: column; }
+.tag { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.project .tools { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: .92rem; color: var(--muted); }
+.project .tools b { color: var(--fg); font-weight: 600; }
+.project a.link { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; text-underline-offset: 4px; }
+.logo-img { display: block; width: 132px; height: 132px; border: 1px solid var(--line); margin: 2px 0 14px; }
+.swatches { display: flex; gap: 8px; margin: 4px 0 14px; flex-wrap: wrap; }
+.swatches span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+.swatches i { width: 18px; height: 18px; border: 1px solid var(--line); display: inline-block; }
+
+/* Timeline */
+ol.timeline { list-style: none; margin: 0; padding: 0; }
+ol.timeline li { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 8px 28px; padding: 22px 0; border-top: 1px solid var(--line); }
+ol.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.when { font-family: var(--font-mono); font-size: .85rem; color: var(--accent-text); padding-top: 6px; }
+ol.timeline h3 { font-size: 1.35rem; margin-bottom: 2px; }
+.org { color: var(--muted); margin-bottom: 8px; }
+
+/* Skills */
+.skillgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
+.skillgrid h3 { font-size: 1.2rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chips li { border: 1px solid var(--line); background: var(--bg-2); padding: 4px 11px; font-size: .94rem; }
+
+/* Education */
+dl.edu { margin: 0; display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 0 28px; }
+dl.edu dt { font-family: var(--font-mono); font-size: .85rem; color: var(--accent-text); padding: 14px 0; border-top: 1px solid var(--line); }
+dl.edu dd { margin: 0; padding: 12px 0; border-top: 1px solid var(--line); }
+dl.edu dd small { display: block; color: var(--muted); font-size: .92rem; }
+
+/* Contact */
+.contact { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--accent); padding: 28px; margin-block: 8px 0; }
+.contact p.big { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.2; max-width: 30ch; margin-bottom: 18px; text-wrap: balance; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+#email { font-family: var(--font-mono); font-size: 1.05rem; user-select: all; word-break: break-all; }
+button.copy { font: inherit; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; background: var(--accent); color: var(--on-accent); border: 0; padding: 8px 16px; cursor: pointer; }
+button.copy:hover { filter: brightness(1.08); }
+footer { padding-block: 36px 48px; color: var(--muted); font-size: .9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
+
+@media (max-width: 860px) {
+  .cols { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .projects, .skillgrid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .hero { padding-block: 36px 36px; }
+  ol.timeline li, dl.edu { grid-template-columns: minmax(0, 1fr); }
+  ol.timeline li { gap: 2px; padding: 18px 0; }
+  .when { padding-top: 0; }
+  dl.edu dt { padding-bottom: 0; border-bottom: 0; }
+  dl.edu dd { border-top: 0; padding-top: 2px; }
+  .hero::before { background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%); }
+  .contact { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio &middot; Montréal, QC</p>
+    <h1>Bastien Bonnefont</h1>
+    <p class="role">Formation et IA appliquée</p>
+    <div class="bar" aria-hidden="true"></div>
+    <p class="lead">Je conçois des outils, des contenus et des formations qui simplifient le travail des autres : applications interactives, sites web, logos, automatisations et accompagnement des utilisateurs. Depuis février 2025, je mène des projets d'IA et d'automatisation pour des PME québécoises, avec une base solide en pédagogie.</p>
+    <ul class="facts">
+      <li><b>Depuis 2025</b><span>Création et automatisation avec l'IA pour des PME</span></li>
+      <li><b>2021 à 2026</b><span>Accompagnement d'enseignants et d'étudiants au Québec</span></li>
+      <li><b>Maîtrise MEEF</b><span>Mention Bien, Université Lyon 2</span></li>
+      <li><b>1 an en classe</b><span>Professeur des écoles, en France</span></li>
+    </ul>
+    <nav class="top" aria-label="Sections">
+      <a href="#apport">Ce que j'apporte</a>
+      <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#competences">Compétences</a>
+      <a href="#formation">Formation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="apport">
+  <h2 class="sec-title">Ce que j'apporte</h2>
+  <div class="cols">
+    <div>
+      <h3>Formation et accompagnement des utilisateurs</h3>
+      <ul class="plain">
+        <li>Support technique de première ligne auprès des chargés de cours et des étudiants, avant et pendant la formation.</li>
+        <li>Rédaction et mise à jour de supports pédagogiques et techniques.</li>
+        <li>Animation de journées d'intégration et accompagnement d'enseignants sur Teams.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>IA et automatisation</h3>
+      <ul class="plain">
+        <li>Prompt engineering pour des cas d'usage clients, sur Claude, ChatGPT, Copilot et Gemini.</li>
+        <li>Flux de travail automatisés avec n8n et Power Automate.</li>
+        <li>Prototypes web intégrant l'IA, du besoin d'affaires jusqu'à la solution livrée.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Création numérique et contenu</h3>
+      <ul class="plain">
+        <li>Micro-applications web interactives, comme des quiz aux couleurs d'une marque.</li>
+        <li>Sites web et identité visuelle, dont la conception d'un logo.</li>
+        <li>Copywriting et rédaction de supports pédagogiques et techniques.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <h2 class="sec-title">Projets choisis</h2>
+  <div class="projects">
+
+    <article class="project">
+      <p class="tag">Démonstrations de prospection &middot; Devanture Studio</p>
+      <h3>Quiz interactifs pour des marques locales</h3>
+      <p>Trois micro-applications de quiz fonctionnelles, créées comme démonstrations pour des marques locales. Chacune a été reconstruite à partir de captures d'écran pour reprendre l'identité visuelle réelle de la marque et montrer concrètement ce qu'un contenu interactif lui apporterait. L'une d'elles, un bilan d'orientation en ligne, est publiée sur GitHub Pages.</p>
+      <p><a class="link" href="https://bastienhbgt.github.io/QuizzDerma-V2/" target="_blank" rel="noopener">Voir un quiz en ligne</a></p>
+      <p class="tools"><b>Ce que ça montre :</b> passer d'un besoin commercial à un outil utilisable, en respectant une identité de marque existante.</p>
+    </article>
+
+    <article class="project">
+      <p class="tag">Ma propre activité &middot; Site web &middot; 2024</p>
+      <h3>EchoWords, mes services de copywriting</h3>
+      <p>Site construit en 2024 pour ma propre activité de copywriting, avec une page FAQ. Il est présenté ici dans sa version de préproduction, construite sur la plateforme B12.</p>
+      <p><a class="link" href="https://echowords-t2mb-staging.b12sites.com/faq#home" target="_blank" rel="noopener">Voir le site de préproduction</a></p>
+      <p class="tools"><b>Livrable :</b> site web de ma propre activité de copywriting.</p>
+    </article>
+
+    <article class="project">
+      <p class="tag">Identité visuelle &middot; Logo &middot; 2025</p>
+      <h3>Création d'un logo</h3>
+      <img class="logo-img" src="data:image/jpeg;base64,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VI9R+S7xYeo9Y6rwcWyzIMKyaC/4zcpaCuh6B7OrXt72PaejmnvB/Srk6fa+YBq7YP3H6hUFvoLnVN8lJSVgDqSsPd5NzvRd4NcQQewlRcM8b3ecf4LOKF68XKRRxFajVDhGrKV8130xqTVQ9XGy1kgEjPVFKejh9F+x+kVWO62m6WO7S2u826qt9bEdpKaqiMcjfaD+nsVNd0LFuLJ7KZQfM6aIi1MgiIgCIiAIiIAiJ2Dc9AO9AF+4opZ52QwxvklkcGMjY0uc9x7AAOpJ8ApC060Rz7UqaOaz2s0dqcdnXWuBjgA7+TvkPqaCPEhWxxnTXSXh5xsZRkVxgluTGlpu1waDI53zKeIb8pPg3dx7yprcmMPCubKK8eU+b5IjjRThdeXQZXqjS+TY3aSnsUnf3h1R6u/yf53zV9deOJGCGmqcF00rANgYKy80x2awDoYqcjv7i8dB2N8RgOsnElftQG1GP40yay424lrxvy1NY3+kIPmsPzAeveT2KCVnCiU5cd34NJ3RguCr8hERWkYREQBERAEREAREQBERAEREAREQBERAEREATtGxG4REBMmmvElnmn8cNtrJRkNlZs0Udc8+Uib4RS9SPY7mHhsrIW3UvQfXS2RWfIoKBlc4craG9NbDMw/0MwOx6/Mdv6lQtCARsQCPAqazFhN7XJ/QohkyjyfNFv8AMeDa31Dn1WB5PJRk9W0V0aZo/dK3zgPaHe1QbknD7q5jDnOqsQqq+BvX4RaiKtpHjs3zx72rzMQ1j1KwcMisGV1raVnQUdUfhEG3gGP35fydlNeN8Z94ga2LLcOpazuNRbJzC728j+Yf3gs9ZFfTUkabon15Mq/V0tTQVDoK+mmpJWnYx1EZjcPc4Ar5DqNx19ivPT8UGiOS07YMhpK2maR50d0tgqGD3s5wv2+8cJGQESTfuEDnd8lMKV32taV73qS96DHdov3ZootsfApsfAq9IxDhIn88Pwfx6XQM+zygXBtPCLavPccCO3zqls32FxTvi+VnndH5yRRUuaDsXNB8CVkNhwTNMoeG49il4uQPy4KR5YPa8gNH1q5n77XDDigDrSMfErPR+5dmL3fnCP8AxXh3zjKw6kjMeN4peLk8DYGqeylj/S523uXneLZe7B/c97Cte9MjDFOEXUS8PZLktZbsdpjtzNe/4VPt+Aw8o97lN1m0P0Q0itrL7ltTSVk8XnCuv8zeTmH+7h9HfwGzj61AeUcV2qd+ZJBaprfjtO4bf6jF5SXb+sk32PrAChm63i7X25OuF7udZcqt3bPWTOlf9bidvcnZXWe/LS+g7WqHuLf6ls9QOL62UUD7XppaBVvaPJi5V8ZjhYOz4uLo53q5uUeoqrOUZbkeZ3595ye8VNyrHbgPmd0YPmsaOjG+poAXiot6qIVe6jCy6dnVhERbGQREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBc7nxK4RAO3tTcoiAbk9pREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/2Q==" width="132" height="132" alt="Logo circulaire : pictogramme hexagonal blanc au-dessus d'un monogramme de trois lettres, sur fond bleu ardoise">
+      <p>Logo réalisé en 2025 pour une compagnie qui souhaitait renouveler le sien. Il est circulaire, en bleu ardoise et blanc : un pictogramme hexagonal au-dessus d'un monogramme de trois lettres, inscrits dans un cercle.</p>
+      <p class="tools"><b>Livrable :</b> logo carré, en deux couleurs.</p>
+    </article>
+
+    <article class="project">
+      <p class="tag">Projet personnel &middot; Application autonome</p>
+      <h3>Application d'inventaire sur mesure</h3>
+      <p>Application d'inventaire conçue pour une marque de bijoux en pâte polymère faits main. Elle tient dans un seul fichier HTML, enregistre les données localement dans le navigateur (IndexedDB), accepte une photo pour chaque article, signale les stocks bas et permet une sauvegarde en JSON.</p>
+      <p class="tools"><b>Ce que ça montre :</b> concevoir un outil simple autour des gestes réels d'une petite entreprise, sans infrastructure à gérer.</p>
+    </article>
+
+    <article class="project">
+      <p class="tag">Service en construction &middot; Vidéo par IA</p>
+      <h3>Devanture Studio</h3>
+      <p>Service de vidéo générée par IA pour les commerces locaux de Montréal. J'ai installé et configuré Wan2GP en local et mis en place n8n avec Docker pour l'automatisation. Les limites du matériel (carte graphique de 6 Go) fixent pour l'instant la production à des clips de 3 à 4 secondes en 480p.</p>
+      <div class="swatches" aria-label="Palette de la marque Devanture Studio">
+        <span><i style="background:#F3EEE4"></i>Crème</span>
+        <span><i style="background:#2F4A3E"></i>Vert forêt</span>
+        <span><i style="background:#D9A05B"></i>Ocre</span>
+      </div>
+      <p><a class="link" href="https://www.instagram.com/devanturestudio/" target="_blank" rel="noopener">Instagram @devanturestudio</a></p>
+      <p class="tools"><b>Ce que ça montre :</b> monter une chaîne d'outils d'IA et en connaître les limites réelles avant de les promettre à un client.</p>
+    </article>
+
+    <article class="project">
+      <p class="tag">Depuis février 2025 &middot; Freelance</p>
+      <h3>Consultation en IA et automatisation pour PME</h3>
+      <p>Repérage des occasions d'automatisation et d'intégration de l'IA dans des PME québécoises. Mise au point d'invites pour plusieurs modèles de langage, construction de prototypes web et traduction des besoins d'affaires en solutions concrètes.</p>
+      <p class="tools"><b>Outils :</b> Claude, ChatGPT, Copilot, Gemini, n8n, Power Automate.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="parcours">
+  <h2 class="sec-title">Parcours</h2>
+  <ol class="timeline">
+    <li>
+      <div class="when">Fév. 2025 &rarr; présent</div>
+      <div>
+        <h3>Consultant en intelligence artificielle et automatisation</h3>
+        <p class="org">Freelance, Québec</p>
+        <p>Automatisation et intégration de l'IA pour des PME québécoises, du besoin d'affaires à la solution livrée.</p>
+      </div>
+    </li>
+    <li>
+      <div class="when">Avr. 2025 &rarr; août 2026</div>
+      <div>
+        <h3>Coordonnateur pédagogique</h3>
+        <p class="org">École de danse contemporaine de Montréal</p>
+        <p>Admissions, auditions, horaires et dossiers étudiants. Coordination avec le corps enseignant et les partenaires institutionnels, production de rapports et soutien personnalisé aux étudiants tout au long de leur parcours.</p>
+      </div>
+    </li>
+    <li>
+      <div class="when">Nov. 2022 &rarr; mars 2025</div>
+      <div>
+        <h3>Coordonnateur du registrariat et services aux étudiants</h3>
+        <p class="org">Collège April-Fortier et Académie de l'Entrepreneurship</p>
+        <p>Direction de l'équipe du registrariat et suivi de plusieurs centaines de dossiers. Support technique aux chargés de cours et aux étudiants, rédaction de supports techniques et pédagogiques, animation de journées d'intégration.</p>
+      </div>
+    </li>
+    <li>
+      <div class="when">Mai 2021 &rarr; nov. 2022</div>
+      <div>
+        <h3>Registraire</h3>
+        <p class="org">Académie de l'Entrepreneurship</p>
+        <p>Secrétariat des opérations, émission des certifications de finissants, supervision des examens et transmission des notes au Ministère. Service aux étudiants en personne, par téléphone, courriel et en ligne.</p>
+      </div>
+    </li>
+    <li>
+      <div class="when">Mars 2019 &rarr; janv. 2020</div>
+      <div>
+        <h3>Chargé de missions</h3>
+        <p class="org">Université de Médecine, France</p>
+        <p>Accompagnement d'étudiants de dernière année et d'étudiants Erasmus, pilotage du processus de diplomation et coordination des échanges entre intervenants internes et externes.</p>
+      </div>
+    </li>
+    <li>
+      <div class="when">Sept. 2017 &rarr; sept. 2018</div>
+      <div>
+        <h3>Professeur des écoles</h3>
+        <p class="org">France</p>
+        <p>Responsabilité d'une classe, projets éducatifs, participation au projet d'école et aux réunions pédagogiques, approches différenciées pour soutenir l'apprentissage de chaque élève.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="competences">
+  <h2 class="sec-title">Compétences et outils</h2>
+  <div class="skillgrid">
+    <div>
+      <h3>Intelligence artificielle</h3>
+      <ul class="chips">
+        <li>Claude</li><li>ChatGPT</li><li>Copilot</li><li>Gemini</li><li>Prompt engineering</li><li>Agents IA</li><li>Prototypes web avec IA</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Automatisation</h3>
+      <ul class="chips">
+        <li>n8n</li><li>Power Automate</li><li>Docker</li><li>Wan2GP</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Outils et logiciels</h3>
+      <ul class="chips">
+        <li>Suite Office</li><li>Teams</li><li>Planner</li><li>Adobe Acrobat Pro</li><li>Canva</li><li>Scribe</li><li>Google Slides</li><li>Gamma</li><li>Illustrator</li><li>myMEQ</li><li>Via</li><li>Extrafe</li><li>Socrate</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Web et identité de marque</h3>
+      <ul class="chips">
+        <li>Sites web</li><li>Micro-applications web</li><li>Identité visuelle</li><li>Logos</li><li>Copywriting</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Savoir-être</h3>
+      <ul class="chips">
+        <li>Initiative et autonomie</li><li>Communication et pédagogie</li><li>Vulgarisation</li><li>Accompagnement au changement</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Langues</h3>
+      <ul class="chips">
+        <li>Français, langue maternelle</li><li>Anglais, professionnel avancé</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <h2 class="sec-title">Formation et perfectionnement</h2>
+  <dl class="edu">
+    <dt>Juillet 2026</dt>
+    <dd>L'IA au service des entreprises<small>Université de Pennsylvanie, sur Coursera</small></dd>
+    <dt>Octobre 2024</dt>
+    <dd>Formation SAQC 2<small>CEEC</small></dd>
+    <dt>Août 2024</dt>
+    <dd>Google IA Essentials<small>Coursera</small></dd>
+    <dt>2017 &ndash; 2018</dt>
+    <dd>Diplôme universitaire en sciences de l'éducation<small>Université Lyon 1, France</small></dd>
+    <dt>2015 &ndash; 2017</dt>
+    <dd>Maîtrise MEEF, mention Bien<small>Métiers de l'enseignement, de l'éducation et de la formation, Université Lyon 2, France</small></dd>
+    <dt>2010 &ndash; 2014</dt>
+    <dd>Baccalauréat en sciences humaines, mention psychologie<small>Université Bordeaux 2, France</small></dd>
+  </dl>
+</section>
+
+<section id="contact">
+  <h2 class="sec-title">Contact</h2>
+  <div class="contact">
+    <p class="big">À la recherche d'un poste permanent en conception de formation ou en adoption de l'IA, à Montréal.</p>
+    <div class="mail">
+      <span id="email">bonnefontbastien@gmail.com</span>
+      <button type="button" class="copy" id="copy">Copier</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>Bastien Bonnefont, Montréal</span>
+    <span>CV disponible sur demande</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var label = btn.textContent;
+  function reset() { setTimeout(function () { btn.textContent = label; }, 1800); }
+  btn.addEventListener('click', function () {
+    var text = 'bonnefontbastien@gmail.com';
+    var fallback = function () {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('email'));
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      btn.textContent = 'Sélectionné';
+      reset();
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copié';
+        reset();
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
